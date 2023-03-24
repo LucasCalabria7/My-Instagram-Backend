@@ -1,18 +1,22 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
+import { LoginInputDTO, SignupInputDTO, SignupOutputDTO } from "../DTOs/DTOs";
 
 export class UserController {
     constructor(private userBusiness: UserBusiness) { }
 
     public signup = async (req: Request, res: Response) => {
         try {
-            const input = {
+            const input: SignupInputDTO = {
                 name: req.body.name,
                 email: req.body.email,
                 password: req.body.password,
             };
-            const output = await this.userBusiness.signup(input);
+
+            const output: SignupOutputDTO = await this.userBusiness.signup(input);
+
             res.status(201).send(output);
+
         } catch (error) {
             console.log(error);
 
@@ -22,7 +26,7 @@ export class UserController {
             if (error instanceof Error) {
                 res.send(error.message);
             } else {
-                res.send("Unexpected Error");
+                res.send("Unexpected Error"); 
             }
         }
     }
@@ -30,12 +34,15 @@ export class UserController {
 
     public login = async (req: Request, res: Response) => {
         try {
-            const input = {
+            const input: LoginInputDTO = {
                 email: req.body.email,
                 password: req.body.password,
             };
+
             const output = await this.userBusiness.login(input);
+
             res.status(200).send(output);
+            
         } catch (error) {
             console.log(error);
 

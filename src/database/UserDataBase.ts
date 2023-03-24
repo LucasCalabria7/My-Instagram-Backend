@@ -9,11 +9,10 @@ export class UserDatabase extends BaseDatabase {
         .insert(userDB);
     }
 
-    public searchByName = async (name: string) => {
-        const searchedName : UserDB[] = await BaseDatabase.connection(UserDatabase.TABLE_USERS)
+    public searchByEmail = async (email: string) => {
+        const searchedEmail : UserDB[] = await BaseDatabase.connection(UserDatabase.TABLE_USERS)
         .select()
-        .where({name})
-
-        return searchedName
+        .where({email})
+        return searchedEmail[0]
     }
 }
