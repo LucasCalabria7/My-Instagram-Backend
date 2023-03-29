@@ -1,6 +1,6 @@
 # MyCommerce Back-End 
 
-![preview](./readme-pic.png)
+![preview](./readmepic.png)
 
 This project simulate perfectly an Instagram Application, Where trought a Restful API the user imerge on a social media app, the first requests that were created are the same that the user it's going to make, signup and login. After the person is logged it can post any type of content, such as photos, reels, storys or comments. Being in mynd that this is a Back-End APP, all of the requests are connected to the database, making it dynamic and useful.
 
