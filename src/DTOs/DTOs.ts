@@ -25,7 +25,6 @@ export interface SignupOutputDTO {
 }
 
 export interface GetPostsInputDTO {
-    q: string | undefined
     token: string | undefined;
 }
 

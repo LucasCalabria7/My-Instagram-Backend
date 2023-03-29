@@ -9,9 +9,8 @@ export class PostController {
         try {
 
             const input: GetPostsInputDTO = {
-                q: req.query.q as string | undefined,
                 token: req.headers.authorization
-            }; 
+            };  
 
             const output = await this.postBusiness.getPosts(input);
 

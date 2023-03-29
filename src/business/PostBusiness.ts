@@ -12,12 +12,12 @@ export class PostBusiness {
         private tokenManager: TokenManager,
     ) { }
 
-    public getPosts = async (input: GetPostsInputDTO) => {
-        const { token, q } = input;
+    public getPosts = async (input: GetPostsInputDTO): Promise<GetPostsOutputDTO> => {
+        const { token } = input;
 
         if (token === undefined) {
             throw new Error("Token doesn't exist");
-        }
+        } 
 
         const payload = this.tokenManager.getPayload(token);
 
@@ -94,7 +94,7 @@ export class PostBusiness {
     public editPosts = async (input: EditPostInputDTO) => {
         const { idToEdit, token, content } = input;
 
-        if (token !== "string") {
+        if (typeof token !== "string") {
             throw new Error("Token doesn't exists");
         }
 

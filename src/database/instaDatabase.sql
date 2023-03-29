@@ -21,6 +21,8 @@ CREATE TABLE
         FOREIGN KEY (creator_id) REFERENCES users(id)
     );
 
+    SELECT * FROM users;
+
 CREATE TABLE
     likes_dislikes(
         user_id TEXT NOT NULL,

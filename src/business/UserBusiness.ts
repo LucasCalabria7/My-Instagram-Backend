@@ -62,7 +62,7 @@ export class UserBusiness {
         return output;
     };
 
-    public login = async (input: LoginInputDTO) => {
+    public login = async (input: LoginInputDTO): Promise<LoginOutputDTO> => {
         const { email, password } = input;
 
         if (typeof email !== "string") {
@@ -91,7 +91,7 @@ export class UserBusiness {
         const isPasswordCorrect = await this.hashManager.compare(
             password,
             user.getPassword()
-        );
+        ); 
 
         if (!isPasswordCorrect) {
             throw new Error("Wrong password, try again.");
