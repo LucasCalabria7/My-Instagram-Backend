@@ -1,4 +1,4 @@
-# MyCommerce Back-End 
+# My Instagram Back-End 
 
 ![preview](./readmepic.png)
 
